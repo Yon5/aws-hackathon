@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active current">
+          <a class="nav-link link text-white bg-dark btn-margin-right btn-margin-right text-sm-2"
+            routerLink="/report/all">Entire release level, ALL projects</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active current">
+          <a class="nav-link link text-white bg-dark btn-margin-right" routerLink="/report/release">Individual project
+            level per release</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div class="row ">
+    <div class="col-sm">
+     <div class="card card-body border-0 custom-collapse backgroundColor">
+       <form [formGroup]='formSprint'>
+        <label class="text-white text-uppercase">Sprint Number:</label>
+        <input  type="hidden" class="form-control" id="min" name="min" placeholder="Minimum" value="1">
+        <input  type="hidden" class="form-control" id="max" name="max" placeholder="Maximum" value="99">
+        <input  formControlName='sprintName'
+        type="text" aria-label="sprint"   placeholder="Sprint #  E.g. DIGITAL-UDAF-2020.06"  #sprintInput class="form-control" >
+        <div *ngIf="formSprint.get('sprintName').touched  && formSprint.get('sprintName').invalid" class="alert alert-danger">
+          <div *ngIf="formSprint.get('sprintName').errors.required">Invalid sprint name  <b>empty</b></div>
+          <!--<div *ngIf="formSprint.get('sprintName').errors.cannotContainSpace">Invalid sprint name   <b>remove spaces</b><br></div>-->
+
+         </div>
+
+        <label class="text-white text-uppercase">Project Number:</label>
+        <input formControlName='sprintProject'
+         type="text" aria-label="project"  placeholder="Project # E.g. P0150783" #projectInput class="form-control">
+        <div *ngIf="formSprint.get('sprintProject').touched  && formSprint.get('sprintProject').invalid" class="alert alert-danger">
+          <div *ngIf="formSprint.get('sprintProject').errors.required">Invalid Project number: P1234567 <b>empty</b>  </div>
+          <div *ngIf="formSprint.get('sprintProject').errors.pattern">Invalid Project number: P1234567 </div>
+          <div *ngIf="formSprint.get('sprintProject').errors.cannotContainSpace">Invalid Project number: YYYY.MM   <b>remove spaces</b><br></div>
+
+
+         </div>
+
+        <input type="hidden" id="action" name="action" #actionInputSprint value="sprint">
+        <br>
+        <button [disabled]="formSprint.invalid"  type="submit" class="btn btn-primary text-white  custom-btn btn-sm" (click)="onClink(sprintInput,projectInput,actionInputSprint)">Submit</button>
+      </form>
+    </div>
+    </div>
+    <div class="col-sm   custom-collapse rounded">
+      <!-- <div *ngIf="issues.length <= 0 && this.Action == 'sprint'" ><h1 class="blink">{{statusSprint}}</h1></div>
+      <div *ngIf="issues.length > 0  && this.Action == 'sprint'"><h1  *ngIf="issuesTotal.length == 0"><b  class="blink">Calculating </b> the value of the traceability</h1></div>
+      <div *ngIf="issues.length > 0 && this.Action == 'sprint'"><h1 *ngIf="issuesTotal.length > 0">Traceability:  <b *ngIf="TraceabilitySprint_calc == 100">{{TraceabilitySprint_calc}}%</b><b *ngIf="TraceabilitySprint_calc < 100">{{TraceabilitySprint_calc.toFixed(0)}} %</b></h1></div> -->
+      <div *ngIf="this.statusRelease== 'Fetching data in progress . . .'"><h2 ><b  class="blink_me">{{this.statusRelease}}</b></h2></div>
+      <div *ngIf="this.statusRelease== 'no data'"><h2 ><b  class="blink_me">No data found !!</b></h2></div>
+      <div *ngIf="this.statusRelease== 'pulling'"><h3 ><b  class="blink">Calculating </b>the value of the traceability for the project <b class="blink_me">{{this.project}}</b></h3></div>
+      <div *ngIf="issuesRelease.length == issuesTotalReleaseWithAlm.length && this.statusRelease != 'pulling' && issuesTotalReleaseWithAlm.length > 0 "><h1>Users Stories Traceability Overall: <b>{{TraceabilitySprint_calcRelease.toFixed(0)}} %</b></h1></div>
+
+
+    </div>
+  </div>
+  <br>
+  <input  type="hidden" class="form-control" id="zephyrtests" name="zephyrtests" placeholder="Minimum" value="2">
+  <input  type="hidden" class="form-control" id="almtests" name="almtests" placeholder="Maximum" value="2">
+  <div *ngIf="issuesTotalReleaseWithAlm.length > 0  && this.Action == 'sprint' && this.statusRelease!= 'pulling'">
+          <table id="indProjbySprint" #indProjbySprint class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th scope="col" class="th-sm">#</th>
+              <th scope="col" class="th-sm">User Stories</th>
+              <th scope="col" class="th-sm">Zephyr # of test(s)</th>
+              <th scope="col" class="th-sm">Alm # of test(s)</th>
+              <th scope="col" class="th-sm">Impacted Application/s</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let issue of issuesTotalReleaseWithAlm;let i = index" >
+              <th   *ngIf="issue.totalZ == 0 && issue.totalA == 0" scope="row" class="bg-warning text-danger">{{i+1}}</th>
+              <th   *ngIf="issue.totalZ != 0 || issue.totalA != 0" scope="row">{{i+1}}</th>
+
+              <td   *ngIf="issue.totalZ != 0 || issue.totalA != 0" scope="row" class="bg-light"><a href="https://cedt-gct-jira.nam.nsroot.net/jira/browse/{{issue.key}}" target="_blank">{{issue.key}} </a></td>
+              <td   *ngIf="issue.totalZ == 0 && issue.totalA == 0" scope="row" class="bg-warning text-danger"><b class="blink_me text-danger" style="font-size: 20px">&#9730;</b> <a href="https://cedt-gct-jira.nam.nsroot.net/jira/browse/{{issue.key}}" target="_blank">{{issue.key}}</a></td>
+
+              <td   *ngIf="issue.totalZ != 0 || issue.totalA != 0" scope="row" class="bg-light" >{{issue.totalZ}}</td>
+              <td   *ngIf="issue.totalZ == 0 && issue.totalA ==0" scope="row" class="bg-warning text-danger">{{issue.totalZ}}</td>
+
+              <td   *ngIf="issue.totalZ != 0 || issue.totalA !=0"   scope="row" class="bg-light">{{issue.totalA}}</td>
+              <td   *ngIf="issue.totalZ == 0 && issue.totalA ==0" scope="row" class="bg-warning text-danger">{{issue.totalA}}</td>
+
+              <td   *ngIf="issue.totalZ != 0 || issue.totalA !=0"   scope="row" class="bg-light">{{issue.csi}}</td>
+              <td   *ngIf="issue.totalZ == 0 && issue.totalA ==0" scope="row" class="bg-warning text-danger">{{issue.csi}}</td>
+            </tr>
+        </tbody>
+          </table>
+
+  </div>

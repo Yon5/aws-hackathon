@@ -1,0 +1,166 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" routerLinkActive="active current">
+          <a class="nav-link link text-white bg-dark btn-margin-right btn-margin-right text-sm-2"
+            routerLink="/report/all">Entire release level, ALL projects</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active current">
+          <a class="nav-link link text-white bg-dark btn-margin-right" routerLink="/report/release">Individual project
+            level per release</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="row ">
+  <div class="col-sm-4 " >
+    <div class="  bg-light  ">
+      <form [formGroup]="formAll">
+        <label *ngIf="kindOfReport == 'merged' || kindOfReport == 'zephyr'">
+          <h4>
+            <p class="text-danger">Latest Zypher update:<em class="blink_me text-danger"> {{this.dateReport}}</em>
+          </h4>
+        </label>
+        <label *ngIf="kindOfReport == 'merged' || kindOfReport == 'zephyr'">
+          <h4>
+            <p class="text-danger">&nbsp;&nbsp;ALM update:<em class="blink_me text-danger"> {{this.dateReportAlm}}</em>
+          </h4>
+        </label>
+
+        <!-- <label class="text-white text-uppercase">Release Number:</label> -->
+
+        <input formControlName="releaseAll" type="text" aria-label="sprint" placeholder="Release # E.g. 2020.06"
+          #releaseInputAll class="form-control col-xs-4" width="10">
+
+        <div *ngIf="formAll.get('releaseAll').touched  && formAll.get('releaseAll').invalid" class="alert alert-danger">
+          <div *ngIf="formAll.get('releaseAll').errors.required">Invalid release number: YYYY.MM <b>empty</b><br> </div>
+          <div *ngIf="formAll.get('releaseAll').errors.minlength">Invalid release number: YYYY.MM <b>incomplete</b><br>
+          </div>
+          <div *ngIf="formAll.get('releaseAll').errors.maxlength">Invalid release number: YYYY.MM <b>remove</b> the
+            extra characters: YYYY.MM<br></div>
+          <div *ngIf="formAll.get('releaseAll').errors.pattern">Invalid release number: YYYY.MM <b>format</b> is not
+            correct<br></div>
+          <div *ngIf="formAll.get('releaseAll').errors.cannotContainSpace">Invalid release number: YYYY.MM <b>remove
+              spaces</b><br></div>
+        </div>
+        <br>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button name="getAll" id="getAll" [disabled]="formAll.invalid" type="submit"
+              class="btn btn-dark  custom-btn btn-sm" (click)="onClinkAll(releaseInputAll)">ALM & Zephyr</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-4 ">
+    <!-- <div *ngIf="allProjects.length <= 0"><h3 class="blink">{{statusAllProjects}}</h3></div> -->
+    <div *ngIf="allProjects.length == TotalProjectsByRelease" class="subHeader" style="width: 700px;">
+      <div class="bg-warning  text-center" *ngIf="kindOfReport == 'alm'">ALM</div>
+      <div class="bg-primary  text-center text-white " *ngIf="kindOfReport == 'zephyr'">Zephyr</div>
+      <div class="row">
+        <div class="col-sm-6 pull-right">
+          <h3 *ngIf="allProjects.length > 0"># of Projects : {{TotalProjectsByRelease - this.projectsWihtOutIssues}}
+          </h3>
+        </div>
+        <div class="col-sm-6 pull-right" *ngIf="kindOfReport == 'alm'  || kindOfReport == 'merged' ">
+          <h4> Requirements Traceability ALM : <b
+              *ngIf="this.reportTraceability == ''">{{ (((allProjects.length-total_testAllProjects)/allProjects.length)*100).toFixed(0) }}
+              %</b><b *ngIf="this.reportTraceability != ''"> {{this.reportTraceabilityAlm}} % </b></h4>
+        </div>
+        <div class="col-sm-6 pull-right " *ngIf="kindOfReport == 'zephyr' ">
+          <h4> Requirements Traceability Zephyr : <b
+              *ngIf="this.reportTraceability == ''">{{ (((allProjects.length-total_testAllProjects)/allProjects.length)*100).toFixed(0) }}
+              %</b><b *ngIf="this.reportTraceabilityZephyr != ''"> {{this.reportTraceabilityZephyr}} % </b></h4>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-6 pull-right">
+          <h3 *ngIf=" kindOfReport == 'merged' "> Requirements Traceability Overall :</h3> <b
+              *ngIf="this.reportTraceability == ''">{{ (((allProjects.length-total_testAllProjects)/allProjects.length)*100).toFixed(0) }}
+              %</b><b *ngIf="this.reportTraceability != ''"> {{this.reportTraceability}} % </b>
+        </div>
+        <div class="col-md-6 pull-right ">
+          <h4 *ngIf=" kindOfReport == 'merged' "> Requirements Traceability Zephyr : <b
+              *ngIf="this.reportTraceability == ''">{{ (((allProjects.length-total_testAllProjects)/allProjects.length)*100).toFixed(0) }}
+              %</b><b *ngIf="this.reportTraceabilityZephyr != ''"> {{this.reportTraceabilityZephyr}} % </b></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 pull-right"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<br>
+<div *ngIf="(TotalProjectsByRelease - allProjects.length)==0">
+
+  <input type="hidden" class="form-control" id="min" name="min" placeholder="Minimum" value="0">
+  <input type="hidden" class="form-control" id="max" name="max" placeholder="Maximum" value="100">
+
+  <hr *ngIf="kindOfReport == 'alm'" class="bg-warning">
+  <hr *ngIf="kindOfReport == 'zephyr'" class="bg-primary">
+  <hr *ngIf="kindOfReport == 'merged'" class="bg-dark">
+  <table id="dataTable" #dataTable class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th scope="col" class="th-sm">#</th>
+        <th scope="col" class="th-sm"># Project</th>
+        <th scope="col" class="th-sm">Total Requirements</th>
+        <th scope="col" class="th-sm">Traceability per project level</th>
+        <th scope="col" class="th-sm  alert-success">Requirements with at least 1 test case (Source: ALM)</th>
+        <th scope="col" class="th-sm  alert-success">Requirements with at least 1 test case (Source: Zephyr)</th>
+        <th scope="col" class="th-sm  alert-danger">Requirements with 0 test (Source: ALM)</th>
+        <th scope="col" class="th-sm  alert-danger">Requirements with 0 test (Source: Zephyr)</th>
+        <th scope="col" class="th-sm  alert-danger">Requirements In Scope for Testing (Test mng tool unknown)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of allProjects;let i = index;">
+        <th scope="row">{{i+1}}</th>
+        <th scope="row">{{project.project}}</th>
+        <th scope="row">{{project.totalIssues}}</th>
+
+        <th *ngIf="(project.traceability != null )" scope="row">{{project.traceability.toFixed(0)}}%</th>
+        <th *ngIf="(project.traceability == null )" scope="row">0%</th>
+
+        <th scope="row">
+          <a *ngFor="let storie of project.IssuesWithTestAALM;"
+            href="https://cedt-gct-jira.nam.nsroot.net/jira/browse/{{storie.key}}" data-toggle="tooltip"
+            data-placement="top" title="{{storie.csi}}" target="_blank"> {{storie.key}} </a>
+        </th>
+
+        <th scope="row">
+          <a *ngFor="let storie of project.IssuesWithTestA;"
+            href="https://cedt-gct-jira.nam.nsroot.net/jira/browse/{{storie.key}}" data-toggle="tooltip"
+            data-placement="top" title="{{storie.csi}}" target="_blank"> {{storie.key}} </a>
+        </th>
+
+        <th scope="row">
+          <a *ngFor="let storie of project.IssuesZeroTestAALM;"
+            href="https://cedt-gct-jira.nam.nsroot.net/jira/browse/{{storie.key}}" data-toggle="tooltip"
+            data-placement="top" title="{{storie.csi}}" target="_blank">{{storie.key}} </a>
+        </th>
+        <th scope="row">
+          <a *ngFor="let storie of project.IssuesZeroTestA;"
+            href="https://cedt-gct-jira.nam.nsroot.net/jira/browse/{{storie.key}}" data-toggle="tooltip"
+            data-placement="top" title="{{storie.csi}}" target="_blank">{{storie.key}} </a>
+        </th>
+        <th scope="row">
+          <a *ngFor="let storie of project.IssuesUnknownSource;"
+            href="https://cedt-gct-jira.nam.nsroot.net/jira/browse/{{storie.key}}" data-toggle="tooltip"
+            data-placement="top" title="{{storie.csi}}" target="_blank">{{storie.key}} </a>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <!-- ALM -->
+
+
+</div>

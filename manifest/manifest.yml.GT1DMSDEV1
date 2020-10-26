@@ -1,0 +1,11 @@
+applications:
+- memory: 64MB
+  instances: 1
+  timeout: 300
+  name: XLN-IEX-U-TRACEABILITY
+  routes:
+  - route: xln-iex-u-traceability-ui-dev1.apps-gt1-dev.nam.nsroot.net
+  - route: traceability-pilot-dev1.apps-gt1-dev.nam.nsroot.net
+  buildpacks:
+  - citi_staticfile_1_4_42_0
+  path: ./engineering-excellence-ss/

@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active current">
+          <a class="nav-link link text-white bg-dark btn-margin-right btn-margin-right text-sm-2"
+            routerLink="/report/all">Entire release level, ALL projects</a>
+        </li>
+        <li class="nav-item active" routerLinkActive="active current">
+          <a class="nav-link link text-white bg-dark btn-margin-right" routerLink="/report/release">Individual project
+            level per release</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row ">
+  <div class="col-sm">
+    <br>
+     <div class="bg-light ">
+              <form [formGroup]="formRelease">
+              <label  class="text-white text-uppercase">Release Number :</label>
+              <input  type="hidden" class="form-control" id="min" name="min" placeholder="Minimum" value="1">
+              <input  type="hidden" class="form-control" id="max" name="max" placeholder="Maximum" value="100">
+              <input  formControlName="releaseProject" type="text" aria-label="release"   placeholder="Release # E.g. 2020.05"  #releaseInput class="form-control col-xs-4" >
+                <div *ngIf="formRelease.get('releaseProject').touched  && formRelease.get('releaseProject').invalid" class="alert alert-danger">
+                <div *ngIf="formRelease.get('releaseProject').errors.required"> Invalid release number: YYYY.MM   <b>empty     </b><br></div>
+                <div *ngIf="formRelease.get('releaseProject').errors.minlength">Invalid release number: YYYY.MM   <b>incomplete</b><br></div>
+                <div *ngIf="formRelease.get('releaseProject').errors.maxlength">Invalid release number: YYYY.MM   <b>remove    </b> the extra characters: YYYY.MM<br></div>
+                <div *ngIf="formRelease.get('releaseProject').errors.pattern">  Invalid release number: YYYY.MM   <b>format    </b> is not correct<br></div>
+                <div *ngIf="formRelease.get('releaseProject').errors.cannotContainSpace">Invalid release number: YYYY.MM       <b>remove spaces</b><br></div>
+               </div>
+
+              <label   class="text-white text-uppercase">Project Number:</label>
+              <input formControlName='projectName' type="text" aria-label="project"  placeholder="Project # E.g. P0150783"   #releaseprojectInput class="form-control col-xs-4">
+              <div *ngIf="formRelease.get('projectName').touched  && formRelease.get('projectName').invalid" class="alert alert-danger">
+                <div *ngIf="formRelease.get('projectName').errors.required">Invalid Project number is  required: P1234567 <b>empty</b></div>
+                <div *ngIf="formRelease.get('projectName').errors.pattern">Invalid Project number: P1234567 </div>
+                <div *ngIf="formRelease.get('projectName').errors.cannotContainSpace">Invalid release number: YYYY.MM   <b>remove spaces</b><br></div>
+               </div>
+
+              <input type="hidden" id="action" name="action" #actionInputRelease value="release">
+              <br>
+              <button   [disabled]="formRelease.invalid" type="submit" class="btn btn-primary  custom-btn btn-sm" (click)="onClink(releaseInput,releaseprojectInput,actionInputRelease)">Submit</button>
+            </form>
+          </div>
+          </div>
+          <div class="col-sm   custom-collapse rounded">
+            <div *ngIf="this.statusRelease== 'Fetching data in progress . . .'"><h2 ><b  class="blink_me">{{this.statusRelease}}</b></h2></div>
+            <div *ngIf="this.statusRelease== 'no data'"><h2 ><b  class="blink_me">No data found !!</b></h2></div>
+            <div *ngIf="this.statusRelease== 'pulling'"><h3 ><b  class="blink">Calculating </b>the value of the traceability for the project <b class="blink_me">{{this.project}}</b></h3></div>
+            <div *ngIf="issuesRelease.length == issuesTotalReleaseWithAlm.length && this.statusRelease != 'pulling' && issuesTotalReleaseWithAlm.length > 0 "><h1>Users Stories Traceability Overall: <b>{{TraceabilitySprint_calcRelease.toFixed(0)}} %</b></h1></div>
+          </div>
+        </div>
+        <br>
+              <input  type="hidden" class="form-control" id="zephyrtests" name="zephyrtests" placeholder="Minimum" value="2">
+              <input  type="hidden" class="form-control" id="almtests" name="almtests" placeholder="Maximum" value="2">
+
+              <div *ngIf="issuesRelease.length == issuesTotalReleaseWithAlm.length && issuesTotalReleaseWithAlm.length > 0 && this.statusRelease!= 'pulling'">
+          <table id="indProjbyRel" #indProjbyRel class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th scope="col"  class="th-sm">#</th>
+                <th scope="col"  class="th-sm">User Stories</th>
+                <th scope="col"  class="th-sm">Zephyr # of test(s)</th>
+                <th scope="col"  class="th-sm">ALM  # of test(s)</th>
+                <th scope="col"  class="th-sm">Impacted Application/s</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let issue of issuesTotalReleaseWithAlm;let i = index" >
+                <th   *ngIf="issue.totalZ == 0 && issue.totalA == 0" class="bg-warning text-danger">{{i+1}} <b class="blink_me text-danger" style="font-size: 20px">&#9730;</b></th>
+                <th   *ngIf="issue.totalZ != 0 || issue.totalA != 0" >{{i+1}}</th>
+
+                <td   *ngIf="issue.totalZ != 0 || issue.totalA != 0" class="bg-light"><a href="https://cedt-gct-jira.nam.nsroot.net/jira/browse/{{issue.key}}" target="_blank">{{issue.key}} </a></td>
+                <td   *ngIf="issue.totalZ == 0 && issue.totalA == 0" class="bg-warning text-danger"> <a href="https://cedt-gct-jira.nam.nsroot.net/jira/browse/{{issue.key}}" target="_blank">{{issue.key}}</a></td>
+
+                <td   *ngIf="issue.totalZ != 0 || issue.totalA != 0" scope="row" class="bg-light" >{{issue.totalZ}}</td>
+                <td   *ngIf="issue.totalZ == 0 && issue.totalA ==0" scope="row" class="bg-warning text-danger">{{issue.totalZ}}</td>
+
+                <td   *ngIf="issue.totalZ != 0 || issue.totalA != 0"  scope="row" class="bg-light">{{issue.totalA}}</td>
+                <td   *ngIf="issue.totalZ == 0 && issue.totalA == 0" scope="row" class="bg-warning text-danger">{{issue.totalA}}</td>
+
+                <td   *ngIf="issue.totalZ != 0 || issue.totalA !=0"   scope="row" class="bg-light">{{issue.csi}}</td>
+                <td   *ngIf="issue.totalZ == 0 && issue.totalA ==0" scope="row" class="bg-warning text-danger">{{issue.csi}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>

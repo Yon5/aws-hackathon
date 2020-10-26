@@ -1,0 +1,981 @@
+BODY{                   
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-TOP: 0px;
+    MARGIN: 0px;
+}
+
+.MainContent{
+	PADDING-RIGHT: 10px;
+	PADDING-LEFT: 10px;
+	MARGIN: 0;
+	BACKGROUND-COLOR: #F1F1F1;
+}
+
+.OuterTable{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 0.74em;
+    PADDING-TOP: 16px;
+    PADDING-RIGHT: 14px;
+    PADDING-LEFT: 14px;
+    PADDING-BOTTOM: 14px;
+    BORDER-LEFT: #c6c7c6 1px solid;
+    BORDER-RIGHT: #c6c7c6 1px solid;
+    BORDER-BOTTOM: #c6c7c6 1px solid;    
+    BACKGROUND-COLOR: #f1f1f1
+}
+
+.OuterTableFull{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 0.74em;
+    PADDING-TOP: 14px;
+    PADDING-BOTTOM: 14px;
+    PADDING-LEFT: 14px;
+    PADDING-RIGHT: 14px;
+    BORDER-TOP: #c6c7c6 1px solid;
+    BORDER-RIGHT: #c6c7c6 1px solid;
+    BORDER-LEFT: #c6c7c6 1px solid;
+    BORDER-BOTTOM: #c6c7c6 1px solid;
+    BACKGROUND-COLOR: #f1f1f1
+}
+
+.Language{
+    FONT-SIZE: x-small;
+    FONT-FAMILY: Arial
+}
+
+.TabActions{
+    VERTICAL-ALIGN: bottom;
+    BORDER-BOTTOM: #c6c7c6 1px solid
+}
+
+#ActionTable{
+    MARGIN-BOTTOM: 3px;
+    MARGIN-RIGHT: 2px
+}
+
+#ActionItem ul {
+	margin: 0 0 0 10px;
+	list-style-image: url(/Standards/Citigroup/images/off.gif);
+	line-height: 14px;
+	list-style: disc;
+}
+
+#ActionItem li {
+	margin: 0px;
+	padding: 1px 0;
+
+}
+
+#ActionItem li span {
+	margin-left: 0px;
+	
+}
+
+.AlphaAct
+{
+    FONT-FAMILY: Arial;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1em;
+    COLOR: #73757B;
+    PADDING-TOP: 7px;
+    PADDING-BOTTOM: 7px;        
+    TEXT-DECORATION: none
+}
+
+
+.AlphaInact
+{
+    FONT-FAMILY: Arial;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1em;
+    COLOR: #cccccc;
+    PADDING-TOP: 7px;
+    PADDING-BOTTOM: 7px;        
+    TEXT-DECORATION: none
+}
+.BodyText{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 0.70em;
+    COLOR: #666666;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+.BodyText A{
+    FONT-WEIGHT: normal;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+
+.BodyText A:hover{
+    FONT-WEIGHT: normal;
+    COLOR: #ff0000;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+
+.BodyText A:link{
+    FONT-WEIGHT: normal;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+
+.Divider{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: x-small;
+    PADDING-BOTTOM: 3px;
+    COLOR: #003366;
+    PADDING-TOP: 3px;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #adcbe7;
+    TEXT-DECORATION: none
+}
+
+.Header{
+    FONT-FAMILY: Arial;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 0.80em;
+    COLOR: #73757B;
+    HEIGHT: 23px;
+    VERTICAL-ALIGN: middle;    
+    PADDING-RIGHT: 5px;
+    PADDING-LEFT: 5px;
+    PADDING-TOP: 0px;    
+    PADDING-BOTTOM: 0px;
+    BORDER-TOP: 0px;
+    BORDER-LEFT: 0px;
+    BORDER-RIGHT: 1px solid #8b6a20; 
+    BORDER-BOTTOM: 0px;
+  	BACKGROUND-COLOR: #E7E0B4; 
+  	BACKGROUND-POSITION: bottom;
+  	BACKGROUND-REPEAT: repeat-x; 
+  	BACKGROUND-IMAGE: url('/Standards/Citigroup/images/hdr_bg_center_new.jpg'); 
+    TEXT-DECORATION: none;
+}
+
+.Header A{
+    FONT-WEIGHT: bold;
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.Header A:link{
+    FONT-WEIGHT: bold;
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.Header A:hover{
+    FONT-WEIGHT: bold;
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+
+.Headersm{
+	FONT-FAMILY: Arial;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 0.75em;
+    COLOR: #333333;
+    BACKGROUND-COLOR: #c5d0e2;
+    TEXT-DECORATION: none
+}
+
+.Row {
+    PADDING:  3px 5px;
+    FONT-SIZE: 0.74em; 
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f1f1f1;   
+    TEXT-DECORATION: none
+}
+
+.Row A{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.Row A:hover{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+.Row A:link{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+.RowHigh {
+    PADDING:  3px 5px;
+    FONT-SIZE: 0.74em; 
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #fef8d8;   
+    TEXT-DECORATION: none
+	VERTICAL-ALIGN: top;
+}
+.RowHigh A{
+    COLOR: #000000;
+    TEXT-DECORATION: underline
+    VERTICAL-ALIGN: top;
+}
+.RowHigh A:hover{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+    VERTICAL-ALIGN: top;
+}
+.RowHigh A:link{
+    COLOR: #000000;
+    TEXT-DECORATION: underline
+    VERTICAL-ALIGN: top;
+}
+
+
+.RowSearchTitle {
+    PADDING:  3px 3px;
+    FONT-SIZE: 0.74em; 
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f1f1f1;   
+    TEXT-DECORATION: none
+}
+
+.RowSearch {
+    PADDING: 0px 6px 0px 2px;
+    FONT-SIZE: 0.74em; 
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f1f1f1;   
+    TEXT-DECORATION: none
+}
+
+.RowSearch A{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.RowSearch A:hover{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+.RowSearch A:link{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.RowShaded{
+    PADDING: 3px 5px;
+    FONT-SIZE: 0.74em; 
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #F7F7F7;
+    TEXT-DECORATION: none
+}
+
+.RowShaded A{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.RowShaded A:hover{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+.RowShaded A:link{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+.RowShadedHigh {
+    PADDING: 3px 5px;
+    FONT-SIZE: 0.74em; 
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #F1F1F1;
+    TEXT-DECORATION: none
+    VERTICAL-ALIGN: top;
+}
+
+.RowShadedHigh A{
+    COLOR: #000000;
+    TEXT-DECORATION: underline
+    VERTICAL-ALIGN: top;
+}
+
+.RowShadedHigh A:hover{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+    VERTICAL-ALIGN: top;
+}
+
+.RowShadedHigh A:link{
+    COLOR: #000000;
+    TEXT-DECORATION: underline
+    VERTICAL-ALIGN: top;
+}
+
+
+.RowUnShaded{
+    FONT-SIZE: 0.74em;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+.RowUnShaded A{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.RowUnShaded A:hover{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+.RowUnShaded A:link{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+
+.RowNoUnderline{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 0.74em;
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+.RowNoUnderline A{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.RowNoUnderline A:hover{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+.RowNoUnderline A:link{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+
+.RowNoUnderlineOn{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.04em;
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+.RowNoUnderlineOn A{
+    FONT-WEIGHT: bold;
+    COLOR: #73757B;
+    TEXT-DECORATION: none
+}
+
+.RowNoUnderlineOn A:hover{
+    FONT-WEIGHT: bold;
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+.RowNoUnderlineOn A:link{
+    FONT-WEIGHT: bold;
+    COLOR: #73757B;
+    TEXT-DECORATION: none
+}
+
+.RowNoPad {
+    PADDING:  3px 0;
+    FONT-SIZE: 0.74em; 
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f1f1f1;   
+    TEXT-DECORATION: none
+}
+
+.RowNoPad A{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.RowNoPad A:hover{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+.RowNoPad A:link{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+.SubBar{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #f1f1f1;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #66758c;
+    TEXT-DECORATION: none
+}
+
+.SubBar A{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #99ccff;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+
+.SubBar A:hover{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #e6e6e6;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+
+.SubBar A:link{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #99ccff;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+
+
+.SubHeader{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 0.80em;    
+    COLOR:  #73757B;
+    PADDING: 3px 5px;
+    FONT-FAMILY: arial;
+    BACKGROUND-COLOR:  #F1F1F1;
+    TEXT-DECORATION: none
+}
+
+
+
+
+.SubHeader A
+{
+    FONT-WEIGHT: bold;
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+.SubHeader A:link
+{
+    FONT-WEIGHT: bold;
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+.SubHeader A:hover
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+
+.SubHeaderBlue{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 0.80em;    
+    COLOR:  #319ACE;
+    PADDING: 3px 5px;
+    FONT-FAMILY: arial;
+    BACKGROUND-COLOR:  #F1F1F1;
+    TEXT-DECORATION: none
+}
+
+
+.SubHeaderBlue A
+{
+    FONT-WEIGHT: bold;
+    COLOR: #319ACE;
+    TEXT-DECORATION: underline
+}
+.SubHeaderBlue A:link
+{
+    FONT-WEIGHT: bold;
+    COLOR: #319ACE;
+    TEXT-DECORATION: underline
+}
+.SubHeaderBlue A:hover
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+
+
+
+
+.SubHeaderHigh {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 0.80em;
+    VERTICAL-ALIGN: top;
+    COLOR:  #73757B;
+    PADDING: 3px 5px;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR:  #f0e1b6;
+    TEXT-DECORATION: none
+}
+
+.SubHeaderHigh A
+{
+    FONT-WEIGHT: bold;
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+.SubHeaderHigh A:link
+{
+    FONT-WEIGHT: bold;
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+.SubHeaderHigh A:hover
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+.Table{
+    FONT-WEIGHT: bold;
+    COLOR: #333333;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f1f1f1;
+    TEXT-DECORATION: none
+}
+
+
+.SubLink{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: x-small;
+    COLOR: #333333;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+.SubLink A{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+.SubLink A:link{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+.SubLink A:hover{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #0000ff;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #deebff;
+    TEXT-DECORATION: none
+}
+
+.Button{
+    BORDER-RIGHT: #1e5184 1px solid;
+    PADDING-RIGHT: 4px;
+    BORDER-TOP: #adcbe7 1px solid;
+    PADDING-LEFT: 4px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: x-small;
+    FILTER: progid:DXImageTransform.Microsoft.Gradient
+   (GradientType=0,StartColorStr='#f1f1f1ff',EndColorStr='#adcbe7');
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: #adcbe7 1px solid;
+    COLOR: #003366;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: #1e5184 1px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f1f1f1
+}
+
+.ButtonSm{
+    BORDER-RIGHT: #cdcdcd 1px solid;     
+    PADDING-RIGHT: 1px;
+    PADDING-LEFT: 1px;
+    BORDER-TOP: #cdcdcd 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 0.95em;
+    FILTER: progid:DXImageTransform.Microsoft.Gradient
+   (GradientType=0,StartColorStr='#cdcdcd',EndColorStr='#f1f1f1');
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: #cdcdcd 1px solid;
+    COLOR: #000000;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: #cdcdcd 1px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #cdcdcd
+}
+
+
+.ButtonTD{
+    PADDING-TOP: 5px
+}
+
+.FormElement
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #000000;
+    FONT-FAMILY: Arial
+}
+.error
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: x-small;
+    COLOR: #cc0000;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+
+.RowText
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 0.74em;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+.RowText A
+{
+    FONT-WEIGHT: normal;
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+.RowText A:hover
+{
+    FONT-WEIGHT: normal;
+    COLOR: #ff0000;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+.RowText A:link
+{
+    FONT-WEIGHT: normal;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+.XMLbgcolor
+{
+    BACKGROUND-COLOR: #667c99
+}
+.NavText
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: x-small;
+    COLOR: #f1f1f1;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+.PageHeader
+{
+    FONT-FAMILY: Arial;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1em;
+    COLOR: #73757B;
+    PADDING-TOP: 7px;
+    PADDING-BOTTOM: 7px;        
+    TEXT-DECORATION: none
+}
+.PageFilter
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: x-small;
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+.font-family
+{
+    BORDER-RIGHT: 0px;
+    BORDER-TOP: 0px;
+    BORDER-LEFT: 0px;
+    WIDTH: 100%;
+    COLOR: #c5d0e2;
+    BORDER-BOTTOM: 0px;
+    HEIGHT: 1px;
+    BACKGROUND-COLOR: #f1f1f1
+}
+.Greeting
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: x-small;
+    COLOR: #003366;
+    FONT-FAMILY: Arial, Arial, Helvetica, sans-serif
+}
+
+.BodyCopy
+{
+    FONT-SIZE: x-small;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Arial, Helvetica, sans-serif
+}
+
+.TableHeader{
+    FONT-FAMILY: Arial;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 0.80em;
+    COLOR: #73757B;
+    PADDING-BOTTOM: 6px;
+    PADDING-TOP: 6px;
+}
+
+.TableHeader2{
+    FONT-FAMILY: Arial;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 0.80em;
+    COLOR: #73757B;
+    PADDING-BOTTOM: 10px;
+    PADDING-TOP: 10px;
+}
+
+
+.LoginID{
+    FONT-FAMILY: Arial;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 0.74em;
+    COLOR: #73757B;
+    TEXT-DECORATION: none
+}
+
+.LoginID A{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.LoginID A:link{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.LoginID A:hover{
+    COLOR: red;
+    TEXT-DECORATION: underline
+}
+
+
+.Mission{
+    FONT-FAMILY: Arial;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 1em;
+    COLOR: #333333;
+    TEXT-DECORATION: none
+}
+
+.Mission A{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.Mission A:link{
+    COLOR: #73757B;
+    TEXT-DECORATION: underline
+}
+
+.Mission A:hover{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+
+.SearchLabel{
+    FONT-SIZE: 0.74em;
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+
+
+/* ------------------------------ FOOTER ------------------------------------------- */
+
+.Footer
+{
+    FONT-WEIGHT: Normal;
+    FONT-SIZE: x-small;
+    COLOR: #b5b6b5;
+    FONT-FAMILY: arial;
+    TEXT-DECORATION: none;
+
+}
+.Footer A
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #b5b6b5;
+    FONT-FAMILY: arial;
+    TEXT-DECORATION: underline
+}
+.Footer A:link
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #b5b6b5;
+    FONT-FAMILY: arial;
+    TEXT-DECORATION: underline
+}
+.Footer A:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: x-small;
+    COLOR: #ff0000;
+    FONT-FAMILY: arial;
+    TEXT-DECORATION: underline
+}
+.Internal
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: small;
+    COLOR: #999999;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+.Confidential
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: small;
+    COLOR: #ff0000;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+
+
+/* ------------------- Test --------------------- */
+
+.SubHeaderSm{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: xx-small; 
+    PADDING: 3px;
+    COLOR: #73757B;
+    margin-top: 5px 0;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #F1F1F1;
+    TEXT-DECORATION: none
+}
+
+.SubHeaderSm A{
+    FONT-WEIGHT: normal;
+    COLOR: #73757B;
+    FONT-SIZE: xx-small; 
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+
+.SubHeaderSm A:hover{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: xx-small; 
+    COLOR: #ff0000;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+
+.SubHeaderSm A:link{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: xx-small;
+    COLOR: #73757B;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+/************ sign in box *************/
+#base
+{
+	padding: 0px;
+	width: 515px;
+	margin: 55px auto 0px auto;
+	text-align: left;
+	vertical-align: top;
+
+}
+#base .formFrameContainer {
+	width: 515px;
+	background: url(../images/bg_center_repeat.gif) repeat-y 0 0;
+}
+#base .formFrameContainer .formFrameTop {
+	width: 515px;
+	height: 14px;
+	background: url(../images/bg_top.gif) no-repeat;
+
+}
+#base .formFrameContainer .formContent {
+	padding: 0px 30px 0 27px;
+}
+#base .formFrameContainer .formFrameBottom {
+	width: 515px;
+	height: 19px;
+	background: url(../images/bg_bottom.gif) no-repeat;
+}
+fieldset
+{
+      border: 0px;
+      margin: 0px ;      
+      padding: 0px;      
+      color: #000066;      
+      font-size: 13px;      
+      position: relative;
+}
+
+
+
+fieldset input.textinput
+{
+	border: 0px solid #f1f1f1;
+	color: #333;
+	width: 221px;
+	height: 24px;
+	padding: 2px 0 2px 6px;
+	vertical-align: middle;
+	line-height: 18px;
+	background-image: url(../images/input_backg.gif);
+}
+
+
+.roundedcornr_box_755232 {
+	background: url(../images/roundedcornr_755232_tl.png) no-repeat top left;
+}
+.roundedcornr_top_755232 {
+	background: url(../images/roundedcornr_755232_tr.png) no-repeat top right;
+}
+.roundedcornr_bottom_755232 {
+	background: url(../images/roundedcornr_755232_bl.png) no-repeat bottom left;
+}
+.roundedcornr_bottom_755232 div {
+	background: url(../images/roundedcornr_755232_br.png) no-repeat bottom right;
+}
+.roundedcornr_content_755232 {
+	background: url(../images/roundedcornr_755232_r.png) top right repeat-y;
+}
+
+.roundedcornr_top_755232 div,.roundedcornr_top_755232,
+.roundedcornr_bottom_755232 div, .roundedcornr_bottom_755232 {
+	width: 100%;
+	height: 33px;
+	font-size: 1px;
+}
+.roundedcornr_content_755232{
+margin-top: -19px;
+}
+ .roundedcornr_bottom_755232 {
+	margin-top: -19px;
+}
+.roundedcornr_content_755232 { padding: 0 15px; }
